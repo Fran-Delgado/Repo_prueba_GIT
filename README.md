@@ -9,6 +9,9 @@ git config user.name                      # Para configurar el nombre de usuario
 git config user.email                     # Para configurar el nombre de email del repo de trabajo en GIT
 git config --global color.ui auto         # Coloración automática para mayor entendimiento.
 git config --list                         # Para listar las opciones de config
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
+
 
 2.- Alta de nuevo repo en Github.com. 
 
