@@ -11,7 +11,7 @@ git config --global color.ui auto         # Coloración automática para mayor e
 git config --list                         # Para listar las opciones de config
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
-
+git --version
 
 2.- Alta de nuevo repo en Github.com. 
 
@@ -19,6 +19,9 @@ git config --global difftool.prompt false
 
 git init                                  # Para inicializar el repo git local
 git add README.md                         # Para añadir un archivo README.md que abremos creado en el WS a la Stagging Area
+git add . 
+git add -A
+
 git commit -m "first commit"              # Primer commit de nuestro código en el WS local.
 git branch -M main                        # Nos cambiamos a la rama main.
 git remote add origin git@github.com:Fran-Delgado/Repo_prueba_GIT.git    # Conexión con el repo remoto.
@@ -34,12 +37,24 @@ Opciones interesantes de git log:
  
 --oneline: 			# muestra cada confirmación en una sola línea, lo que facilita la lectura del historial.
 --graph: 			# muestra un gráfico ASCII que representa la relación entre las diferentes ramas y confirmaciones.
---author=<author-name> 		# muestra solo las confirmaciones realizadas por un autor específico.
+--author=<author-name> 	# muestra solo las confirmaciones realizadas por un autor específico.
 --since=<date>: 		# muestra solo las confirmaciones realizadas desde una fecha específica.
 --until=<date>: 		# muestra solo las confirmaciones realizadas hasta una fecha específica.
 --grep=<pattern>: 		# muestra solo las confirmaciones que contienen un patrón específico en el mensaje del commit.
---reverse: 			# muestra el historial de confirmaciones en orden inverso (el commit más antiguo primero).
+--reverse: 			    # muestra el historial de confirmaciones en orden inverso (el commit más antiguo primero).
 
-git difftool                    # Diferencia entre stage y workspace
+Ejemplo de log útil:
+git config --global alias.logline "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git logline
+
+
+
+
+git difftool                    # Diferencia entre stage y workspace. Si no hay nada en stage es la diferencia entre commit y workspace
 git difftool --staged           # Diferencia entre último commit y stage
 
+git restore --staged .          # para "unstagear" todo lo que hay en stage 
+git restore --staged <file>     # para "unstagear" un fichero determinado de stage
+
+git restore .                   # para descartar todo lo del working directory 
+git restore <file>              # para descartar un fichero determinado del working directory
