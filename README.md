@@ -40,3 +40,6 @@ Opciones interesantes de git log:
 --grep=<pattern>: 		# muestra solo las confirmaciones que contienen un patrón específico en el mensaje del commit.
 --reverse: 			# muestra el historial de confirmaciones en orden inverso (el commit más antiguo primero).
 
+git difftool                    # Diferencia entre stage y workspace
+git difftool --staged           # Diferencia entre último commit y stage
+
